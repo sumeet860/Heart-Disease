@@ -60,5 +60,51 @@ To find whether the person is having heart disease or not.
  14. target - have disease or not (1=yes, 0=no) (= the predicted attribute)
 
 * The dataset have total of **303 rows × 14 columns**.
-* Getting the target value_counts
 
+* Getting the target value_counts
+![Target](https://github.com/sumeet860/Heart-Disease/blob/main/target_heart.png?raw=True "Target Count")
+
+* Checking the Heart Disease frequency with respect to Sex.
+* More number of males have Heart Disease compare to females.
+![Heart Disease with Sex](https://github.com/sumeet860/Heart-Disease/blob/main/frequency_heart.png?raw=True "Heart Disease with Sex")
+
+* Heart Disease frequency with age, with respect to **max heart rate** .
+![Heart Disease with Max Heart Rate](https://github.com/sumeet860/Heart-Disease/blob/main/target_heart.png?raw=True "Heart Disease with Max Heart Rate")
+
+* Age count
+![Age](https://github.com/sumeet860/Heart-Disease/blob/main/age_heart.png?raw=True "Age")
+
+
+* Heart Disease with respect to Chest Pain Type
+![Chest type Heart Disease](https://github.com/sumeet860/Heart-Disease/blob/main/frequency_chest_heart.png?raw=True "Chest type Heart Disease")
+
+
+# Correlation Matrix
+![Correlation Matrix](https://github.com/sumeet860/Heart-Disease/blob/main/correlation_matrix_heart.png?raw=True "correlation matrix")
+
+# **Machine Learning**
+
+* Splitting the data into train and test model. Have to find how many have heart disease or not assigning target column to 'y' and other columns to 'X'.
+* Using following machine learning models from scikit-learn.
+* **RandomForestClassifier()**
+* **KNearestNeighbor()**
+* **LogisticRegression()**
+
+* For each models we get different scores as follows:
+* {'Logistic Regression': 0.8852459016393442,
+ 'KNN': 0.6885245901639344,
+ 'Random Forest': 0.8360655737704918}
+* Model Comparison
+* # Correlation Matrix
+![Model Comparison](https://github.com/sumeet860/Heart-Disease/blob/main/model_heart.png?raw=True "correlation matrix")
+
+* From the model it is clear that KNN performs very poor compared to other two models.
+* We will do the **hyperparameter tuning** using RandomizedSearchCV and GridSearchCV on the other two models.
+
+# RandomizedSearchCV
+* Hyperparameter tuning of Logistice Regression
+Following parameters were used {"n_estimators": np.arange(10, 1000, 50),
+          "max_depth": [None, 3, 5, 10],
+          "min_samples_split": np.arange(2, 20, 2),
+          "min_samples_leaf": np.arange(1, 20, 2)}
+* With hyperparameter tuning the score improved
